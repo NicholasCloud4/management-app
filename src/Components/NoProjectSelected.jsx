@@ -8,7 +8,8 @@ export default function NoProjectSelected({ onStartAddProject }) {
             <img
                 src={NoProjectsSelected}
                 alt="Empty Project"
-                className="w-16 h-16 object-contain mx-auto"
+                className="w-64 h-64 object-contain mx-auto"
+
             />
             <h2 className="text-xl font-bold text-pokemon-dark-grey mt-4 my-4">
                 No Project Selected
