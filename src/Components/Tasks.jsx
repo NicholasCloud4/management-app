@@ -20,7 +20,8 @@ export default function Tasks({ tasks, onAdd, onDelete }) {
                         return (
                             <li key={task.id} className="flex justify-between my-4">
                                 <span>{task.text}</span>
-                                <button className="text-pokemon-light-orange hover:text-pokemon-light-red transition-all duration-200">Clear</button>
+                                <button className="text-pokemon-light-orange hover:text-pokemon-light-red transition-all duration-200"
+                                    onClick={() => onDelete(task.id)}>Clear</button>
                             </li>
                         );
                     })}
