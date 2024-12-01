@@ -1,4 +1,5 @@
 import React from 'react'
+import Tasks from './Tasks';
 
 export default function SelectedProject({ project, onDelete }) {
     console.log('onDelete prop:', onDelete);
@@ -20,7 +21,7 @@ export default function SelectedProject({ project, onDelete }) {
                 <p className='mb-4 text-pokemon-light-green'>{formattedDate}</p>
                 <p className='text-pokemon-dark-grey whitespace-pre-wrap'>{project.description}</p>
             </header>
-            <div className='text-stone-600'>TASKS...</div>
+            <div className='text-stone-600'><Tasks /></div>
         </div>
     )
 }
