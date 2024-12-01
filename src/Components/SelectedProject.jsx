@@ -1,7 +1,7 @@
 import React from 'react'
 import Tasks from './Tasks';
 
-export default function SelectedProject({ project, onDelete }) {
+export default function SelectedProject({ project, onDelete, onAddTask, onDeleteTask, tasks }) {
     console.log('onDelete prop:', onDelete);
 
     const formattedDate = new Date(project.dueDate).toLocaleDateString('en-US', {
@@ -21,7 +21,9 @@ export default function SelectedProject({ project, onDelete }) {
                 <p className='mb-4 text-pokemon-light-green'>{formattedDate}</p>
                 <p className='text-pokemon-dark-grey whitespace-pre-wrap'>{project.description}</p>
             </header>
-            <div className='text-stone-600'><Tasks /></div>
+            <div className='text-stone-600'>
+                <Tasks onAdd={onAddTask} onDelete={onDeleteTask} tasks={tasks} />
+            </div>
         </div>
     )
 }
