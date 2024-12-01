@@ -2,8 +2,7 @@ import React, { useRef } from "react";
 import Input from "./Input";
 import Modal from "./Modal";
 
-export default function NewProject({ onAdd }) {
-
+export default function NewProject({ onAdd, onCancel }) {
     const modal = useRef();
 
     const title = useRef();
@@ -15,37 +14,44 @@ export default function NewProject({ onAdd }) {
         const enteredDescription = description.current.value;
         const enteredDueDate = dueDate.current.value;
 
-
         // validation ...
 
-        if (enteredTitle.trim() === "" || enteredDescription.trim() === "" || enteredDueDate.trim() === "") {
+        if (
+            enteredTitle.trim() === "" ||
+            enteredDescription.trim() === "" ||
+            enteredDueDate.trim() === ""
+        ) {
             // show error Modal
-            modal.current.open()
-            return
+            modal.current.open();
+            return;
         }
 
         onAdd({
             title: enteredTitle,
             description: enteredDescription,
-            dueDate: enteredDueDate
-        })
-
+            dueDate: enteredDueDate,
+        });
     }
 
     return (
         <>
-            <Modal ref={modal} buttonCaption="Close"><h2>Invalid Input</h2> <p>Please enter valid title, description and due date</p></Modal>
+            <Modal ref={modal} buttonCaption="Close">
+                <h2 className="text-center text-xl font-bold text-pokemon-dark-blue mt-4 my-4">Invalid Input</h2>{" "}
+                <p className="text-pokemon-light-orange mb-4">Please enter valid title, description and due date</p>
+            </Modal>
             <div className="w-[35rem] mt-16 bg-pokemon-grey p-8 rounded-lg shadow-lg">
                 <menu className="flex items-center justify-end gap-4 my-4">
                     <li>
-                        <button className="text-pokemon-dark-grey hover:text-pokemon-light-red transition-colors duration-200">
+                        <button className="text-pokemon-dark-grey hover:text-pokemon-light-red transition-colors duration-200"
+                            onClick={onCancel}>
                             Cancel
                         </button>
                     </li>
                     <li>
                         <button
-                            className="px-6 py-2 rounded-md bg-pokemon-light-green text-white hover:bg-pokemon-orange hover:shadow-md transition-all duration-300"
-                            onClick={handleSave}>
+                            className="px-6 py-2 rounded-md bg-pokemon-light-green text-white hover:bg-pokemon-light-blue hover:shadow-md transition-all duration-300"
+                            onClick={handleSave}
+                        >
                             Save
                         </button>
                     </li>

@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 
 const Input = forwardRef(function Input({ label, textarea, ...props }, ref) {
 
-    const classes = "w-full p-2 border-2 rounded-md border-pokemon-orange bg-pokemon-grey text-pokemon-dark-grey focus:outline-none focus:border-pokemon-light-blue focus:bg-white transition-all duration-200"
+    const classes = "w-full p-2 border-2 rounded-md border-pokemon-light-blue bg-pokemon-grey text-pokemon-dark-grey focus:outline-none focus:border-pokemon-light-blue focus:bg-white transition-all duration-200"
 
     return (
         <p className="flex flex-col gap-1 my-4">
